@@ -1,6 +1,7 @@
 package com.goit.dev.mvc.users.controllers;
 
 import com.goit.dev.mvc.users.dto.BookDto;
+import com.goit.dev.mvc.users.dto.LibDto;
 import com.goit.dev.mvc.users.services.BookService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,10 +27,9 @@ public class BookRestController {
         return bookService.get(id);
     }
     @GetMapping("/")
-    public Page<BookDto> getAll(@RequestParam(name = "size", defaultValue = "100") int size,
-                             @RequestParam(name = "page", defaultValue = "0") int page){
-
-        return bookService.get(size,page);
+    public LibDto getAll(@RequestParam(name = "size", defaultValue = "100") int size,
+                         @RequestParam(name = "page", defaultValue = "0") int page){
+        return new LibDto(bookService.get(size,page),bookService.get(size,page));
     }
     @PostMapping("/")
     public BookDto create(@RequestBody BookDto dto){
