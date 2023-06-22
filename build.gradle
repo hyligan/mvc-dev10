@@ -1,14 +1,16 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.1.0'
+    id 'org.springframework.boot' version '2.7.0'
     id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springdoc.openapi-gradle-plugin' version '1.6.0'
+
 }
 
 group = 'com.goit.dev'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '17'
+    sourceCompatibility = '11'
 }
 
 repositories {
@@ -16,8 +18,12 @@ repositories {
 }
 
 dependencies {
+//    spring-web
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+//    spring-doc
+    implementation 'org.springdoc:springdoc-openapi-ui:1.7.0'
+//    tests
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
